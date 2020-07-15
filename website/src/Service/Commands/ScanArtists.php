@@ -79,7 +79,8 @@ class ScanArtists
                 
                 $albumsData[] = $data;
                 
-                if ($lastTime < $album['release_date']) {
+                // check the release date is after we last scanned and is not in the future (avoid pre-releases)
+                if ($lastTime < $album['release_date'] && $album['release_date'] <= date('Y-m-d')) {
                     $this->output->writeln("New Album! {$album['name']} - Release date: {$album['release_date']}");
     
                     $albumsNew[] = $data;
