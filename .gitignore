@@ -1,0 +1,7 @@
+.idea
+stack/ubuntu-bionic-18.04-cloudimg-console.log.
+stack/.vagrant
+
+stack/ubuntu-bionic-18\.04-cloudimg-console\.log
+website/src/Service/Discord/DiscordToken
+adminer/adminer.php

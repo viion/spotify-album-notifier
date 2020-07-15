@@ -1,0 +1,5 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+      auth: '@App\Service\Discord\DiscordUser'
+      spotify: '@App\Service\Spotify\Spotify'

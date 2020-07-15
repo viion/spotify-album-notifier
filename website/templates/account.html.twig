@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <br/><br/><br/>
+
+    {% if auth.online %}
+        <p>
+            Discord: <strong>{{ auth.user.username }}</strong>
+        </p>
+
+        <p>
+            {% if not auth.user.spotify %}
+                <p>
+                    Now link your <strong>Spotify</strong> account.
+                </p>
+                <p>
+                    <a href="{{ path('spotify_login') }}" class="btn btn-success">Spotify Login</a>
+                </p>
+            {% else %}
+                {% set spotifyProfile = spotify.getUserProfile %}
+                <p>
+                    Spotify Linked: <strong>{{ spotifyProfile.display_name }} ({{ spotifyProfile.id }})</strong>
+                </p>
+                <p>
+                    Get Artists: <a href="{{ path('spotify_artists_get') }}">Linky</a>
+                </p>
+            {% endif %}
+        </p>
+
+    {% else %}
+        <p>
+            Get started by logging into your <strong>Discord</strong> account.
+        </p>
+
+        <p>
+            <a href="{{ path('discord_login') }}" class="btn btn-primary">Discord Login</a>
+        </p>
+    {% endif %}
+
+{% endblock %}
